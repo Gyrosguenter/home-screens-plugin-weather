@@ -1,0 +1,92 @@
+{
+  "id": "weather-animated",
+  "name": "Wetter (animiert)",
+  "version": "0.1.0",
+  "description": "Aktuelles Wetter mit Stunden- und Tagesvorhersage und animierten Wettersymbolen (Open-Meteo, kein API-Key)",
+  "author": "Gyrosguenter",
+  "license": "MIT",
+  "minAppVersion": "1.0.0",
+  "moduleType": "weather-animated",
+  "category": "Weather & Environment",
+  "icon": "CloudSun",
+
+  "defaultConfig": {
+    "locationName": "München",
+    "latitude": "48.1371",
+    "longitude": "11.5754",
+    "hourlyCount": 6,
+    "dailyCount": 4,
+    "refreshIntervalMs": 600000
+  },
+
+  "defaultSize": { "w": 1480, "h": 320 },
+
+  "defaultStyle": {
+    "padding": 20,
+    "fontSize": 22,
+    "backgroundColor": "rgba(0, 0, 0, 0.4)"
+  },
+
+  "configSchema": {
+    "type": "object",
+    "properties": {
+      "locationName": {
+        "type": "string",
+        "title": "Ortsname",
+        "description": "Nur Anzeige. Leer = kein Ortsname.",
+        "ui:widget": "text",
+        "ui:group": "Standort"
+      },
+      "latitude": {
+        "type": "string",
+        "title": "Breitengrad",
+        "ui:widget": "text",
+        "ui:placeholder": "48.1371",
+        "ui:group": "Standort"
+      },
+      "longitude": {
+        "type": "string",
+        "title": "Längengrad",
+        "ui:widget": "text",
+        "ui:placeholder": "11.5754",
+        "ui:group": "Standort"
+      },
+      "hourlyCount": {
+        "type": "number",
+        "title": "Stunden der Vorhersage",
+        "minimum": 0,
+        "maximum": 12,
+        "ui:widget": "slider",
+        "ui:step": 1,
+        "ui:group": "Anzeige"
+      },
+      "dailyCount": {
+        "type": "number",
+        "title": "Tage der Vorhersage",
+        "minimum": 0,
+        "maximum": 7,
+        "ui:widget": "slider",
+        "ui:step": 1,
+        "ui:group": "Anzeige"
+      },
+      "refreshIntervalMs": {
+        "type": "number",
+        "title": "Aktualisierung (ms)",
+        "minimum": 300000,
+        "maximum": 3600000,
+        "ui:widget": "slider",
+        "ui:step": 300000,
+        "ui:group": "Anzeige"
+      }
+    }
+  },
+
+  "exports": {
+    "component": "default"
+  },
+
+  "dataRequirements": [],
+  "prefetchUrl": null,
+  "permissions": ["network"],
+  "allowedDomains": ["api.open-meteo.com"]
+}
